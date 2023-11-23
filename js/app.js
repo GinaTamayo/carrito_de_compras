@@ -2,19 +2,19 @@ const mangas = [
     {id: "manga-01", title: "Jujutsu Kaisen N.01", price: 34.900, category: "fantasia", image:  "../images/mangas/jujutsuKaisen1.webp", stock: 10},
     {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
     {id: "manga-04", title: "One Piece N.01", price: 80.000, category: "manga", image:  "../images/mangas/onePiece01.jpg", stock: 10},
-    {id: "manga-05", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10},
     {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10},
     {id: "manga-06", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
     {id: "manga-07", title: "One Punch Man N.1", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10},
     {id: "manga-08", title: "Kimetsu no Yaiba", price: 70.000, category: "manga", image:  "../images/mangas/demon.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-08", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-01", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/05223_272x272.avif", stock: 10}
+    {id: "manga-09", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-11", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-12", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-14", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/deathNote.jpg", stock: 10},
+    {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10}
 ];
 
 //constantes
@@ -34,7 +34,6 @@ const countProducts = document.getElementById("countProducts");
 const containerBag = document.getElementById("containerBag");
 const contentBag = document.getElementById("contentBag");
 const modalProducts = document.createElement("div");
-modalProducts.classList.add("modalProducts");
 const itemsBag = [];
 
 //variables
@@ -46,7 +45,6 @@ let cont = 0;
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
     renderCards();
-    counter();
 });
 
 
@@ -183,15 +181,21 @@ function countBag(manga) {
 function listProducts() {
    
     modalProducts.textContent = "";
+    
 
     itemsBag.forEach(manga => {
         const productContainer = document.createElement("div");
+        productContainer.classList.add("productContainer");
+
         const img = document.createElement("img");
         img.setAttribute("src", manga.image);
         img.classList.add("imgP");
 
         const title = document.createElement("p");
         title.textContent = manga.title;
+
+        const price = document.createElement("p");
+        price.textContent = `precio: ${manga.price}`;
 
         const containerAmount = document.createElement("div");
         containerAmount.classList.add("containerAmount");
@@ -207,8 +211,11 @@ function listProducts() {
         decrementAmount.textContent = "-";
         decrementAmount.addEventListener("click", () => alterAmount(manga, -1));
 
-        productContainer.appendChild(title);
         productContainer.appendChild(img);
+        productContainer.appendChild(title);
+        productContainer.appendChild(price);
+
+
 
         containerAmount.appendChild(decrementAmount);
         containerAmount.appendChild(amountProduct);
@@ -217,6 +224,8 @@ function listProducts() {
         productContainer.appendChild(containerAmount);
 
         modalProducts.appendChild(productContainer);
+        modalProducts.classList.add("modalProducts");
+
 
 
     });

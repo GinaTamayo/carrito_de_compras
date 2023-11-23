@@ -173,6 +173,41 @@ main{
 .imgP{
     width: 80px;
     height: 120px;
+    margin-right: 50px;
+}
+
+.contentBag{
+    display: none;
+    width: 50%;
+    background-color: #fff;
+    padding: 80px;
+}
+
+.modalProducts{
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.productContainer{
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    background-color: #6767676e;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.productContainer p{
+    margin-right: 50px;
+}
+
+.productContainer div button{
+    width: 30px;
+    height: 30px;
+    margin: 0 19px;
+    border-radius: 5px;
 }
 
 
