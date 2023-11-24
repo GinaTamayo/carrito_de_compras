@@ -41,12 +41,10 @@ let imgSelected = " ";
 let idProduct = 0;
 let cont = 0;
 
-
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
     renderCards();
 });
-
 
 //eventos
 selectProducts.addEventListener("change", renderCards);
@@ -56,7 +54,6 @@ newImage.addEventListener("change", importImg);
 closeModal.addEventListener("click", close);
 seekerMangas.addEventListener("input",  seeker);
 containerBag.addEventListener("click", listProducts);
-
 
 //funciones
 
@@ -105,7 +102,6 @@ function createCards(manga) {
     imgCard.setAttribute("alt", `${id}-${title}`);
     imgCard.classList.add('imgProduct');
 
-
     const nameCard = document.createElement("p");
     nameCard.textContent = title;
     nameCard.classList.add("nameProduct");
@@ -120,7 +116,6 @@ function createCards(manga) {
     btnCard.textContent = "Agregar al carrito";
     btnCard.addEventListener("click", () => countBag(manga));
 
-    
     containerImg.appendChild(imgCard);
 
     card.appendChild(containerImg);
@@ -179,10 +174,8 @@ function countBag(manga) {
 
 //mostrar la lista de productos agregados en la bolsa
 function listProducts() {
-   
     modalProducts.textContent = "";
     
-
     itemsBag.forEach(manga => {
         const productContainer = document.createElement("div");
         productContainer.classList.add("productContainer");
@@ -215,8 +208,6 @@ function listProducts() {
         productContainer.appendChild(title);
         productContainer.appendChild(price);
 
-
-
         containerAmount.appendChild(decrementAmount);
         containerAmount.appendChild(amountProduct);
         containerAmount.appendChild(incrementAmount);
@@ -225,9 +216,6 @@ function listProducts() {
 
         modalProducts.appendChild(productContainer);
         modalProducts.classList.add("modalProducts");
-
-
-
     });
     contentBag.textContent = "";
     contentBag.appendChild(modalProducts);
@@ -259,8 +247,6 @@ function alterAmount(manga, event) {
             const index = itemsBag.indexOf(mangaI);
             if (index !== -1) {
                 itemsBag.splice(index, 1);
-                
-
             }
         }
         countProducts.textContent = itemsBag.length;

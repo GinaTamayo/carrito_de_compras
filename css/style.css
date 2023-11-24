@@ -7,6 +7,7 @@
 body{
     background-color: rgba(164, 109, 113, 0.438);
 }
+
 header{
     text-align: center;
 }
@@ -46,6 +47,7 @@ header{
     border-radius: 50%;
     top: 55%;
 }
+
 .contentBag{
     display: none;
 }
@@ -58,6 +60,7 @@ main{
     /*display: grid;
     grid-template-columns: repeat(5, 1fr);*/
 }
+
 .cardProduct{
     margin: 40px;
     width: 220px;
@@ -68,6 +71,7 @@ main{
     text-align: center;
     background-color: rgb(233, 233, 233);
 }
+
 .containerImages{
     border-radius: 10px;
     height: 70%;
@@ -78,6 +82,7 @@ main{
     overflow: hidden;
 
 }
+
 .imgProduct{
     width: 100%;
     height: 100%;
@@ -87,10 +92,10 @@ main{
 
 }
 
-
 .imgProduct:hover{
     transform: scale(1.2);
 }
+
 .nameProduct{
     margin-top: 6px;
 }
@@ -98,14 +103,18 @@ main{
 .btnCard{
     border-radius: 10px;
     padding: 6px 10px;
-    border-style: dotted;
+    border-style: none;
     cursor: pointer;
+    margin-top: 12px;
+    background-color: rgba(38, 143, 143, 0.788);
 }
+
 .containerModal{
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 .modal{
     margin: 0 30%;
     flex-direction: column;
@@ -119,16 +128,14 @@ main{
     border-radius: 10px;
     display: none;
 }
-.contentBag{
-    position: absolute;
-    z-index: 1;
-}
+
 .modal > input {
     width: 18rem;
     height: 1.5rem;
     border-radius: 15px;
     background-color: rgb(143, 146, 145);
 }
+
 .modal input[type="file"]{
     width: 14rem;
     height: 2rem;
@@ -136,6 +143,7 @@ main{
     color: beige;
     margin-left: 4rem;
 }
+
 .modal > button {
     width: 12rem;
     height: 2rem;
@@ -146,6 +154,7 @@ main{
     transition: all .5s;
 
 }
+
 .modal > button:hover,
 .modal > button:focus{
 
@@ -165,7 +174,6 @@ main{
     right: 0rem;
 }
 
-
 .categories{
     height: 30px;
 }
@@ -177,6 +185,10 @@ main{
 }
 
 .contentBag{
+    position: absolute;
+    margin-left: 45%;
+    z-index: 1;
+    border-radius: 10px;
     display: none;
     width: 50%;
     background-color: #fff;
@@ -186,13 +198,12 @@ main{
 .modalProducts{
     flex-direction: column;
     width: 100%;
-
 }
 
 .productContainer{
+    padding: 18px;
     justify-content: center;
     align-items: center;
-
     display: flex;
     background-color: #6767676e;
     border-radius: 10px;
@@ -208,8 +219,8 @@ main{
     height: 30px;
     margin: 0 19px;
     border-radius: 5px;
+    cursor: pointer;
 }
-
 
 .filtro{
     display: none;
