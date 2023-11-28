@@ -1,7 +1,6 @@
-const mangas = [
+let mangas = [
     {id: "manga-01", title: "Jujutsu Kaisen N.01", price: 34.900, category: "fantasia", image:  "../images/mangas/jujutsuKaisen1.webp", stock: 10},
     {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-04", title: "One Piece N.01", price: 80.000, category: "manga", image:  "../images/mangas/onePiece01.jpg", stock: 10},
     {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10},
     {id: "manga-06", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10},
     {id: "manga-07", title: "One Punch Man N.1", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10},
@@ -14,7 +13,7 @@ const mangas = [
     {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
     {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10},
     {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/deathNote.jpg", stock: 10},
-    {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10}
+    {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10},
 ];
 
 //constantes
@@ -23,7 +22,7 @@ const selectProducts = document.getElementById("selectProduct");
 const btnCreate = document.getElementById("btnCreate");
 const modal = document.querySelector(".modal");
 const closeModal = document.getElementById("closeModal");
-const newProduct = document.getElementById("newProduct")
+const newProduct = document.getElementById("newProduct");
 const newPrice = document.getElementById("newPrice");
 const newCategory = document.getElementById("selectCategory");
 const newImage = document.getElementById("newImage");
@@ -34,17 +33,20 @@ const countProducts = document.getElementById("countProducts");
 const containerBag = document.getElementById("containerBag");
 const contentBag = document.getElementById("contentBag");
 const modalProducts = document.createElement("div");
-const itemsBag = [];
+const itemsBag = JSON.parse(localStorage.getItem("itemsBag")) || [];
 
 //variables
 let imgSelected = " ";
 let idProduct = 0;
-let cont = 0;
+
 
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
+    mangas = JSON.parse(localStorage.getItem("mangas")) || [];
+    mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
     renderCards();
 });
+
 
 //eventos
 selectProducts.addEventListener("change", renderCards);
@@ -56,6 +58,8 @@ seekerMangas.addEventListener("input",  seeker);
 containerBag.addEventListener("click", listProducts);
 
 //funciones
+
+
 
 //abrir el modal para crear un nuevo producto
 function showModal() {
@@ -74,6 +78,9 @@ function importImg(event) {
     imgSelected = objetURL;
 }
 
+//guardar dattos en el localStorage
+
+
 //crear un nuevo producto
 function createNewProduct() {
     idProduct++; 
@@ -83,6 +90,7 @@ function createNewProduct() {
     const id = idProduct;
     const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected}
     mangas.push(newManga);
+    localStorage.setItem("mangas", JSON.stringify(mangas));
     renderCards();
     modal.style.display = "none";
 }
@@ -161,14 +169,18 @@ function countBag(manga) {
             break;
         }
     }
-    if (mangaI) {
-        mangaI.amountProduct = 1;
+    if (mangaI && mangaI.stock > 0) {
+        mangaI.amountProduct = (mangaI.amountProduct || 0) + 1
         if (!itemsBag.includes(mangaI)) {
             itemsBag.push(mangaI);
-        } else {
-            mangaI.amountProduct++;
-        }
+        } 
+        mangaI.stock--;
         countProducts.textContent = itemsBag.length;
+
+        // updateStock(mangaId, -1);
+        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        localStorage.setItem("mangas", JSON.stringify(mangas));
+
     }
 }
 
@@ -220,7 +232,7 @@ function listProducts() {
     contentBag.textContent = "";
     contentBag.appendChild(modalProducts);
 
-    if (contentBag.style.display !== "flex") {
+    if (itemsBag.length > 0 && contentBag.style.display !== "flex") {
         contentBag.style.display = "flex";
         modalProducts.style.display = "flex";    
     } else { 
@@ -231,25 +243,42 @@ function listProducts() {
 //aumentar y disminuir la cantidad de un producto en la bolsa;
 function alterAmount(manga, event) {
     const mangaId = manga.id;
-    let mangaI;
-
-    for (const item of itemsBag) {
-        if (item.id === mangaId) {
-            mangaI = item;
-            break;
-        }
-    }
+    const mangaI = itemsBag.find(item => item.id === mangaId);
 
     if (mangaI) {
         mangaI.amountProduct = (mangaI.amountProduct || 1) + event;
-        
+
         if (mangaI.amountProduct < 1) {
             const index = itemsBag.indexOf(mangaI);
+
             if (index !== -1) {
                 itemsBag.splice(index, 1);
             }
+            mangaI.stock += event;
+        } else {
+            mangaI.stock = Math.max(0, mangaI.stock + event);
+            // updateStock(mangaId, event);
+
+            /*const indexMangas = mangas.findIndex(m => m.id === mangaId);
+            if (indexMangas !== -1) {
+                mangas[indexMangas].stock -= event;
+            }*/
         }
+        console.log(mangas);
         countProducts.textContent = itemsBag.length;
         listProducts();
+        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        localStorage.setItem("mangas", JSON.stringify(mangas));
+      
     }
 }
+
+/*function updateStock(mangaId, change) {
+    const indexMangas = mangas.findIndex(m => m.id === mangaId);
+    if (indexMangas !== -1) {
+        mangas[indexMangas].stock += change;
+        console.log(mangas);
+    }
+}*/
+
+
