@@ -25,6 +25,7 @@ const closeModal = document.getElementById("closeModal");
 const newProduct = document.getElementById("newProduct");
 const newPrice = document.getElementById("newPrice");
 const newCategory = document.getElementById("selectCategory");
+const newStock = document.getElementById("newStock");
 const newImage = document.getElementById("newImage");
 const btnNewProduct = document.getElementById("btnNewProduct");
 const seekerMangas = document.getElementById("seekerMangas");
@@ -39,14 +40,12 @@ const itemsBag = JSON.parse(localStorage.getItem("itemsBag")) || [];
 let imgSelected = " ";
 let idProduct = 0;
 
-
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
-    mangas = JSON.parse(localStorage.getItem("mangas")) || [];
-    mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
+    // mangas = JSON.parse(localStorage.getItem("mangas")) || [];
+    //mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
     renderCards();
 });
-
 
 //eventos
 selectProducts.addEventListener("change", renderCards);
@@ -58,8 +57,6 @@ seekerMangas.addEventListener("input",  seeker);
 containerBag.addEventListener("click", listProducts);
 
 //funciones
-
-
 
 //abrir el modal para crear un nuevo producto
 function showModal() {
@@ -78,26 +75,24 @@ function importImg(event) {
     imgSelected = objetURL;
 }
 
-//guardar dattos en el localStorage
-
-
 //crear un nuevo producto
 function createNewProduct() {
     idProduct++; 
     const titleProduct = newProduct.value;
     const priceProduct = newPrice.value;
     const categoryProduct = newCategory.value;
+    const stockProduct = newStock.value;
     const id = idProduct;
-    const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected}
+    const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected, stock: stockProduct}
     mangas.push(newManga);
-    localStorage.setItem("mangas", JSON.stringify(mangas));
+    // localStorage.setItem("mangas", JSON.stringify(mangas));
     renderCards();
     modal.style.display = "none";
 }
 
 //creacion de las card
 function createCards(manga) {
-    const {title, image, id, price} = manga;
+    const {title, image, id, price, stock} = manga;
 
     const card = document.createElement('div');
     card.classList.add("cardProduct");
@@ -117,6 +112,10 @@ function createCards(manga) {
     const priceCard = document.createElement("p");
     priceCard.classList.add("priceProduct");
     priceCard.textContent = price;
+    
+    const cantidad = document.createElement(`p`)
+    cantidad.textContent = stock;
+
 
     const btnCard = document.createElement("button");
     btnCard.setAttribute("id", id);
@@ -129,6 +128,7 @@ function createCards(manga) {
     card.appendChild(containerImg);
     card.appendChild(nameCard);
     card.appendChild(priceCard);
+    card.appendChild(cantidad)
     card.appendChild(btnCard);
 
     containerCards.appendChild(card);
@@ -174,12 +174,11 @@ function countBag(manga) {
         if (!itemsBag.includes(mangaI)) {
             itemsBag.push(mangaI);
         } 
-        mangaI.stock--;
         countProducts.textContent = itemsBag.length;
-
-        // updateStock(mangaId, -1);
-        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-        localStorage.setItem("mangas", JSON.stringify(mangas));
+        updateStock(mangaId);
+        renderCards()
+        // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        // localStorage.setItem("mangas", JSON.stringify(mangas));
 
     }
 }
@@ -257,28 +256,27 @@ function alterAmount(manga, event) {
             mangaI.stock += event;
         } else {
             mangaI.stock = Math.max(0, mangaI.stock + event);
-            // updateStock(mangaId, event);
+            updateStock(mangaId);
 
-            /*const indexMangas = mangas.findIndex(m => m.id === mangaId);
-            if (indexMangas !== -1) {
+            //const indexMangas = mangas.findIndex(m => m.id === mangaId);
+            /*if (indexMangas !== -1) {
                 mangas[indexMangas].stock -= event;
             }*/
         }
         console.log(mangas);
         countProducts.textContent = itemsBag.length;
         listProducts();
-        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-        localStorage.setItem("mangas", JSON.stringify(mangas));
+        // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        // localStorage.setItem("mangas", JSON.stringify(mangas));
       
     }
 }
 
-/*function updateStock(mangaId, change) {
+//actualizar el stock
+function updateStock(mangaId) {
     const indexMangas = mangas.findIndex(m => m.id === mangaId);
-    if (indexMangas !== -1) {
-        mangas[indexMangas].stock += change;
-        console.log(mangas);
-    }
-}*/
-
+    let cant = mangas[indexMangas].stock
+    mangas[indexMangas].stock = cant-1;
+    console.log(mangas);
+}
 
