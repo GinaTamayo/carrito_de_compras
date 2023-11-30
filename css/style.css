@@ -10,9 +10,14 @@ body{
 
 header{
     text-align: center;
+    padding: 20px;
 }
 
+header h1{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
 .containerSeekerAndCategory{
+    padding: 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -53,7 +58,7 @@ header{
 }
 
 main{
-    padding: 100px 60px;
+    padding: 50px 60px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -117,19 +122,22 @@ main{
 
 .modal{
     margin: 0 30%;
+    padding: 26px;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     position: absolute;
     z-index: 1;
     width: 300px;
-    height: 200px;
+    height: auto;
     background-color: rgb(207, 211, 210);
     border-radius: 10px;
     display: none;
 }
 
 .modal > input {
+    margin-top: 16px;
+    padding: 12px 9px;
     width: 18rem;
     height: 1.5rem;
     border-radius: 15px;
@@ -137,14 +145,21 @@ main{
 }
 
 .modal input[type="file"]{
-    width: 14rem;
-    height: 2rem;
+    width: 12rem;
+    height: 2.5rem;
     border-radius: 5px;
-    color: beige;
-    margin-left: 4rem;
+    color: rgba(245, 245, 220, 0);
+    background-color: rgba(143, 146, 145, 0);
+    margin-left: 2.5rem;
+    margin-top: 0;
+}
+
+.modal select{
+    margin: 15px 0 5px 0;
 }
 
 .modal > button {
+    margin-top: 15px;
     width: 12rem;
     height: 2rem;
     border-radius: 15px;
@@ -170,7 +185,7 @@ main{
     color: aliceblue;
     font-size: 1rem;
     position: absolute;
-    top: -1.3rem;
+    top: -1rem;
     right: 0rem;
 }
 
@@ -221,6 +236,10 @@ main{
     border-radius: 5px;
     cursor: pointer;
 }
+
+/*.descriptionCard{
+    display: none;
+}*/
 
 .filtro{
     display: none;
