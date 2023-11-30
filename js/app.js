@@ -175,7 +175,7 @@ function countBag(manga) {
             itemsBag.push(mangaI);
         } 
         countProducts.textContent = itemsBag.length;
-        updateStock(mangaId);
+        updateStock(mangaId, 1);
         renderCards()
         // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
         // localStorage.setItem("mangas", JSON.stringify(mangas));
@@ -239,6 +239,8 @@ function listProducts() {
     }
 }
 
+
+
 //aumentar y disminuir la cantidad de un producto en la bolsa;
 function alterAmount(manga, event) {
     const mangaId = manga.id;
@@ -252,17 +254,16 @@ function alterAmount(manga, event) {
 
             if (index !== -1) {
                 itemsBag.splice(index, 1);
-            }
-            mangaI.stock += event;
-        } else {
-            mangaI.stock = Math.max(0, mangaI.stock + event);
-            updateStock(mangaId);
 
-            //const indexMangas = mangas.findIndex(m => m.id === mangaId);
-            /*if (indexMangas !== -1) {
-                mangas[indexMangas].stock -= event;
-            }*/
-        }
+            }
+            // manga.stock += event;
+
+        } //else {
+                // manga.stock -= event;
+                // updateStock(mangaId, -1);
+        // }
+        updateStock(mangaId, event);
+
         console.log(mangas);
         countProducts.textContent = itemsBag.length;
         listProducts();
@@ -273,10 +274,14 @@ function alterAmount(manga, event) {
 }
 
 //actualizar el stock
-function updateStock(mangaId) {
+function updateStock(mangaId, amount) {
     const indexMangas = mangas.findIndex(m => m.id === mangaId);
     let cant = mangas[indexMangas].stock
-    mangas[indexMangas].stock = cant-1;
+
+    if (indexMangas !== -1  && mangas[indexMangas].stock !== undefined && amount !== undefined) {
+        mangas[indexMangas].stock -= amount;
+    }
+    // mangas[indexMangas].stock = cant-1;
     console.log(mangas);
 }
 
