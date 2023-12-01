@@ -7,7 +7,7 @@ let mangas = [
     {id: "manga-09", title: "Bleach N.01", price: 50.000, category: "manga", image:  "../images/mangas/bleach01.jpg", stock: 10, description: "descripcion"},
     {id: "manga-11", title: "Bungou Stray Dogs N.01", price: 50.000, category: "drama", image:  "../images/mangas/bungouStrayDogs.jpg", stock: 10, description: "descripcion"},
     {id: "manga-12", title: "Dragon Ball N.01", price: 50.000, category: "manga", image:  "../images/mangas/dragonBall01.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: ""},
     {id: "manga-14", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
     {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
     {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
