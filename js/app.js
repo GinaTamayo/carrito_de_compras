@@ -1,17 +1,17 @@
 let mangas = [
-    {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-06", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-07", title: "One Punch Man N.1", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10, description: "descripcion"},
-    {id: "manga-08", title: "Kimetsu no Yaiba", price: 70.000, category: "manga", image:  "../images/mangas/demon.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-09", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-11", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-12", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "Después de una semana encerrado sin nadie más que Ryuk como compañía, Light está listo para renunciar a su Death Note y todos sus recuerdos. Liberado de sus acciones pasadas, Light está convencido de que es inocente. Pero L está dispuesto a mantener a Light bajo llave para siempre, especialmente porque los asesinatos cesaron una vez que Light fue encarcelado. Entonces, una nueva ola de crímenes de Kira llega a Japón."},
+    {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10, description: "Tatsumi viaja a la capital en busca de fortuna, pero tras caer en manos de unos villanos, un grupo de asesinos, el Night Raid, le rescata. Y es entonces cuando decide que podría estar bien unirse a ellos para luchar contra la injusticia"},
+    {id: "manga-06", title: "One Piece N.01", price: 50.000, category: "aventura", image:  "../images/mangas/onePiece01.jpg", stock: 10, description: 'Cuando era niño, Monkey D. Luffy se inspiró para convertirse en pirata escuchando los cuentos del bucanero "Red-Haired" Shanks. Pero su vida cambió cuando Luffy comió accidentalmente la fruta del diablo Gum-Gum y obtuvo el poder de estirarse como goma... ¡a costa de no poder volver a nadar nunca más! Años más tarde, todavía jurando convertirse en el rey de los piratas, Luffy emprende su aventura... un hombre solo en un bote de remos, en busca del legendario "One Piece", del que se dice que es el tesoro más grande del mundo.'},
+    {id: "manga-07", title: "One Punch Man N.01", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10, description: "descripcion"},
+    {id: "manga-08", title: "Kimetsu no Yaiba Vol.01", price: 70.000, category: "manga", image:  "../images/mangas/demon.jpg", stock: 10, description: "En el Japón de la era Taisho, el bondadoso Tanjiro Kamado se gana la vida vendiendo carbón. Pero su pacífica vida se hace añicos cuando un demonio masacra a toda su familia. Su hermana pequeña Nezuko es la única superviviente, ¡pero ella misma se ha transformado en un demonio! Tanjiro emprende un peligroso viaje para encontrar una manera de devolver a su hermana a la normalidad y destruir al demonio que arruinó su vida."},
+    {id: "manga-09", title: "Bleach N.01", price: 50.000, category: "manga", image:  "../images/mangas/bleach01.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-11", title: "Bungou Stray Dogs N.01", price: 50.000, category: "drama", image:  "../images/mangas/bungouStrayDogs.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-12", title: "Dragon Ball N.01", price: 50.000, category: "manga", image:  "../images/mangas/dragonBall01.jpg", stock: 10, description: "descripcion"},
     {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
     {id: "manga-14", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
     {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
     {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
-    {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/jujutsuKaisen1.webp", stock: 10, description: "Las tensiones aumentan a medida que se acerca el Evento de Buena Voluntad entre los campus de Jujutsu High en Tokio y Kioto. Pero antes de que la competencia pueda comenzar, un par de estudiantes de Kioto se enfrentan a Fushiguro y Kugisaki. Mientras tanto, el entrenamiento de Yuji se ve interrumpido por un misterioso crimen que involucra grotescas alteraciones corporales causadas por un espíritu maldito"},
     {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10, description: "descripcion"},
 ];
 
@@ -132,7 +132,7 @@ function createCards(manga) {
     const btnCard = document.createElement("button");
     btnCard.setAttribute("id", id);
     btnCard.classList.add("btnCard");
-    btnCard.textContent = "Agregar al carrito";
+    btnCard.textContent = "Agregar a la bolsa";
     btnCard.addEventListener("click", () => countBag(manga));
 
     containerImg.appendChild(imgCard);
