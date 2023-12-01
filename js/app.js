@@ -1,18 +1,18 @@
 let mangas = [
-    {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-06", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-07", title: "One Punch Man N.1", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10, descrption: "descripcion"},
-    {id: "manga-08", title: "Kimetsu no Yaiba", price: 70.000, category: "manga", image:  "../images/mangas/demon.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-09", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-11", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-12", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-14", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/deathNote.jpg", stock: 10, descrption: "descripcion"},
-    {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10, descrption: "descripcion"},
+    {id: "manga-03", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-05", title: "Akame ga Kill", price: 55.800, category: "manga", image:  "../images/mangas/akameGaKill01.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-06", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-07", title: "One Punch Man N.1", price: 100.000, category: "accion", image:  "../images/mangas/onePuchMan1.webp", stock: 10, description: "descripcion"},
+    {id: "manga-08", title: "Kimetsu no Yaiba", price: 70.000, category: "manga", image:  "../images/mangas/demon.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-09", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-11", title: "Death Note N.05", price: 50.000, category: "drama", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-12", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-13", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-14", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-15", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-16", title: "Death Note N.05", price: 50.000, category: "manga", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-17", title: "Jujutsu Kaisen N.03", price: 34.900, category: "suspenso", image:  "../images/mangas/deathNote.jpg", stock: 10, description: "descripcion"},
+    {id: "manga-18", title: "Akuma no Riddle N.05", price: 30.000, category: "fantasia", image:  "../images/mangas/akumaNoRiddle.webp", stock: 10, description: "descripcion"},
 ];
 
 //constantes
@@ -25,6 +25,7 @@ const newProduct = document.getElementById("newProduct");
 const newPrice = document.getElementById("newPrice");
 const newCategory = document.getElementById("selectCategory");
 const newStock = document.getElementById("newStock");
+const newDescription = document.getElementById("newDescription");
 const newImage = document.getElementById("newImage");
 const btnNewProduct = document.getElementById("btnNewProduct");
 const seekerMangas = document.getElementById("seekerMangas");
@@ -42,7 +43,7 @@ let idProduct = 0;
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
     // mangas = JSON.parse(localStorage.getItem("mangas")) || [];
-    // mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
+    //mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
     renderCards();
 });
 
@@ -81,8 +82,9 @@ function createNewProduct() {
     const priceProduct = newPrice.value;
     const categoryProduct = newCategory.value;
     const stockProduct = newStock.value;
+    const descriptionProduct = newDescription.value;
     const id = idProduct;
-    const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected, stock: stockProduct}
+    const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected, stock: stockProduct, description: descriptionProduct}
     mangas.push(newManga);
     // localStorage.setItem("mangas", JSON.stringify(mangas));
     renderCards();
@@ -91,7 +93,7 @@ function createNewProduct() {
 
 //creacion de las card
 function createCards(manga) {
-    const {title, image, id, price, stock, descrption} = manga;
+    const {title, image, id, price, stock, description} = manga;
 
     const card = document.createElement('div');
     card.classList.add("cardProduct");
@@ -112,7 +114,7 @@ function createCards(manga) {
     priceCard.classList.add("priceProduct");
     priceCard.textContent = price;
     
-    const cantidad = document.createElement("p");
+    const cantidad = document.createElement(`p`)
     cantidad.textContent = stock;
 
     const containerDescriptionCard = document.createElement("img");
@@ -121,13 +123,11 @@ function createCards(manga) {
 
 
     const descriptionCard = document.createElement("p");
-    descriptionCard.textContent = descrption;
+    descriptionCard.textContent = description;
     descriptionCard.classList.add("descriptionCard");
     descriptionCard.style.display = "none";
 
     containerDescriptionCard.addEventListener("click", () => descriptionManga(descriptionCard));
-
-
 
     const btnCard = document.createElement("button");
     btnCard.setAttribute("id", id);
@@ -140,21 +140,30 @@ function createCards(manga) {
     card.appendChild(containerImg);
     card.appendChild(nameCard);
     card.appendChild(priceCard);
-    card.appendChild(cantidad);
+    card.appendChild(cantidad)
     card.appendChild(btnCard);
     card.appendChild(containerDescriptionCard);
     card.appendChild(descriptionCard);
-
 
     containerCards.appendChild(card);
 }
 
 function descriptionManga(descriptionCard) {
-    descriptionCard.style.display = "flex";
-}
 
-function closeDescriptionManga(descriptionCard) {
-    descriptionCard.style.display = "none";
+   const card = descriptionCard.parentElement;
+
+    if (descriptionCard.style.display === "flex") {
+        descriptionCard.style.display = "none";
+    } else {
+        descriptionCard.style.display = "flex";
+    }
+
+    document.querySelectorAll(".cardProduct").forEach(otherCard => {
+        const otherDescriptionCard = otherCard.querySelector(".descriptionCard");
+        if (otherDescriptionCard && otherCard !== card) {
+            otherDescriptionCard.style.display = "none";
+        }
+    });
 }
 
 //filtro por categorias de los productos
@@ -199,9 +208,10 @@ function countBag(manga) {
         } 
         countProducts.textContent = itemsBag.length;
         updateStock(mangaId, 1);
-        renderCards();
+        renderCards()
         // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
         // localStorage.setItem("mangas", JSON.stringify(mangas));
+
     }
 }
 
@@ -237,6 +247,11 @@ function listProducts() {
         decrementAmount.textContent = "-";
         decrementAmount.addEventListener("click", () => alterAmount(manga, -1));
 
+        // const btnClear = document.createElement("button");
+        // btnClear.textContent = "Vaciar bolsa";
+        // btnClear.classList.add("btnClear");
+        // btnClear.addEventListener("click", () => clearBag);
+
         productContainer.appendChild(img);
         productContainer.appendChild(title);
         productContainer.appendChild(price);
@@ -248,6 +263,7 @@ function listProducts() {
         productContainer.appendChild(containerAmount);
 
         modalProducts.appendChild(productContainer);
+        // modalProducts.appendChild(btnClear);
         modalProducts.classList.add("modalProducts");
     });
     contentBag.textContent = "";
@@ -260,6 +276,25 @@ function listProducts() {
         contentBag.style.display = "none";
     }
 }
+
+/*function clearBag() {
+    itemsBag.forEach(manga => {
+        const mangaId = manga.id;
+        const indexMangas = mangas.findIndex(m => m.id === mangaId);
+
+        if (indexMangas !== -1 && mangas[indexMangas].stock !== undefined) {
+            mangas[indexMangas].stock += manga.amountProduct;
+        }
+    });
+
+    itemsBag.length = 0;
+    countProducts.textContent = 0;
+    listProducts();
+    renderCards();
+    // localStorage.setItem("itemsNag", JSON.stringify(itemsBag));
+    // localStorage.setItem("mangas", JSON.stringify(mangas));
+
+}*/
 
 //aumentar y disminuir la cantidad de un producto en la bolsa;
 function alterAmount(manga, event) {
@@ -289,13 +324,14 @@ function alterAmount(manga, event) {
         listProducts();
         // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
         // localStorage.setItem("mangas", JSON.stringify(mangas));
+      
     }
 }
 
 //actualizar el stock
 function updateStock(mangaId, amount) {
     const indexMangas = mangas.findIndex(m => m.id === mangaId);
-    let cant = mangas[indexMangas].stock
+    // let cant = mangas[indexMangas].stock
 
     if (indexMangas !== -1  && mangas[indexMangas].stock !== undefined && amount !== undefined) {
         mangas[indexMangas].stock -= amount;
