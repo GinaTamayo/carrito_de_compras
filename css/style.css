@@ -17,9 +17,12 @@ header h1{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 
 .containerSeekerAndCategory{
+    display: flex;
+
+    position: absolute;
+    z-index: 1;
     padding: 20px;
     width: 100%;
-    display: flex;
     justify-content: space-between;
 }
 

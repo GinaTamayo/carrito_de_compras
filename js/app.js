@@ -35,6 +35,7 @@ const containerBag = document.getElementById("containerBag");
 const contentBag = document.getElementById("contentBag");
 const modalProducts = document.createElement("div");
 const itemsBag = JSON.parse(localStorage.getItem("itemsBag")) || [];
+const bag = document.getElementById("bag")
 
 //variables
 let imgSelected = " ";
@@ -55,6 +56,7 @@ newImage.addEventListener("change", importImg);
 closeModal.addEventListener("click", close);
 seekerMangas.addEventListener("input",  seeker);
 containerBag.addEventListener("click", listProducts);
+containerShoppingBag.addEventListener("click", openCloseBag)
 
 //funciones
 
@@ -269,11 +271,19 @@ function listProducts() {
     contentBag.textContent = "";
     contentBag.appendChild(modalProducts);
 
+    
+}
+
+function openCloseBag(){
     if (itemsBag.length > 0 && contentBag.style.display !== "flex") {
         contentBag.style.display = "flex";
-        modalProducts.style.display = "flex";    
-    } else { 
+        modalProducts.style.display = "flex";  
+    } else if (itemsBag.length === 0 && contentBag.style.display == "flex" ) {
         contentBag.style.display = "none";
+        modalProducts.style.display = "none";  
+    }else if (contentBag.style.display == "flex"){
+        contentBag.style.display = "none";
+        modalProducts.style.display = "none";
     }
 }
 
@@ -301,8 +311,8 @@ function alterAmount(manga, event) {
     const mangaId = manga.id;
     const mangaI = itemsBag.find(item => item.id === mangaId);
 
-    if (mangaI) {
-        mangaI.amountProduct = (mangaI.amountProduct || 1) + event;
+    if (mangaI.stock >0) {
+        mangaI.amountProduct = (mangaI.amountProduct || 1) + event;    
 
         if (mangaI.amountProduct < 1) {
             const index = itemsBag.indexOf(mangaI);
@@ -323,8 +333,9 @@ function alterAmount(manga, event) {
         countProducts.textContent = itemsBag.length;
         listProducts();
         // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-        // localStorage.setItem("mangas", JSON.stringify(mangas));
-      
+        // localStorage.setItem("mangas", JSON.stringify(mangas)); 
+    }else{
+        alert("no")
     }
 }
 
@@ -337,6 +348,6 @@ function updateStock(mangaId, amount) {
         mangas[indexMangas].stock -= amount;
     }
     // mangas[indexMangas].stock = cant-1;
-    console.log(mangas);
+    renderCards()
 }
 
