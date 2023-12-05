@@ -35,7 +35,10 @@ const containerBag = document.getElementById("containerBag");
 const contentBag = document.getElementById("contentBag");
 const modalProducts = document.createElement("div");
 const itemsBag = JSON.parse(localStorage.getItem("itemsBag")) || [];
-const bag = document.getElementById("bag")
+const bag = document.getElementById("bag");
+const btnClear = document.createElement("button");
+
+
 
 //variables
 let imgSelected = " ";
@@ -137,6 +140,12 @@ function createCards(manga) {
     btnCard.textContent = "Agregar a la bolsa";
     btnCard.addEventListener("click", () => countBag(manga));
 
+    const btnEdit = document.createElement("button");
+    btnEdit.setAttribute("id", `edit-${id}`);
+    btnEdit.classList.add("btnEdit");
+    btnEdit.textContent = "Editar";
+    btnEdit.addEventListener("click", () => editCard(manga));
+
     containerImg.appendChild(imgCard);
 
     card.appendChild(containerImg);
@@ -146,6 +155,8 @@ function createCards(manga) {
     card.appendChild(btnCard);
     card.appendChild(containerDescriptionCard);
     card.appendChild(descriptionCard);
+    card.appendChild(btnEdit);
+
 
     containerCards.appendChild(card);
 }
@@ -166,6 +177,35 @@ function descriptionManga(descriptionCard) {
             otherDescriptionCard.style.display = "none";
         }
     });
+}
+function editCard(manga) {
+    showModal();
+
+    newProduct.value = manga.title;
+    newPrice.value = manga.price;
+    newCategory.value = manga.category;
+    newStock.value = manga.stock;
+    newDescription.value = manga.description;
+
+   
+    btnNewProduct.textContent = "Guardar Cambios";
+    btnNewProduct.removeEventListener("click", createNewProduct);
+    btnNewProduct.addEventListener("click", () => saveChanges(manga.id));
+}
+
+
+function saveChanges(mangaId) {
+    const editManga = mangas.find(m => m.id === mangaId);
+
+    editManga.title = newProduct.value;
+    editManga.price = newPrice.value;
+    editManga.category = newCategory.value;
+    editManga.stock = newStock.value;
+    editManga.description = newDescription.value;
+
+    renderCards()
+
+    close();
 }
 
 //filtro por categorias de los productos
@@ -249,10 +289,9 @@ function listProducts() {
         decrementAmount.textContent = "-";
         decrementAmount.addEventListener("click", () => alterAmount(manga, -1));
 
-        // const btnClear = document.createElement("button");
-        // btnClear.textContent = "Vaciar bolsa";
-        // btnClear.classList.add("btnClear");
-        // btnClear.addEventListener("click", () => clearBag);
+        btnClear.textContent = "Vaciar bolsa";
+        btnClear.classList.add("btnClear");
+        btnClear.addEventListener("click", () => clearBag());
 
         productContainer.appendChild(img);
         productContainer.appendChild(title);
@@ -265,12 +304,11 @@ function listProducts() {
         productContainer.appendChild(containerAmount);
 
         modalProducts.appendChild(productContainer);
-        // modalProducts.appendChild(btnClear);
         modalProducts.classList.add("modalProducts");
     });
     contentBag.textContent = "";
     contentBag.appendChild(modalProducts);
-
+    contentBag.appendChild(btnClear);
     
 }
 
@@ -287,7 +325,7 @@ function openCloseBag(){
     }
 }
 
-/*function clearBag() {
+function clearBag() {
     itemsBag.forEach(manga => {
         const mangaId = manga.id;
         const indexMangas = mangas.findIndex(m => m.id === mangaId);
@@ -301,10 +339,9 @@ function openCloseBag(){
     countProducts.textContent = 0;
     listProducts();
     renderCards();
-    // localStorage.setItem("itemsNag", JSON.stringify(itemsBag));
+    // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
     // localStorage.setItem("mangas", JSON.stringify(mangas));
-
-}*/
+}
 
 //aumentar y disminuir la cantidad de un producto en la bolsa;
 function alterAmount(manga, event) {
