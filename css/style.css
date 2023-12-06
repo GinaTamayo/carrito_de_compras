@@ -5,26 +5,35 @@
 }
 
 body{
-    background-color: rgba(145, 109, 164, 0.438);
+    background-color: rgba(203, 203, 203, 0.438);
 }
 
 header{
+    width: 100%;
     text-align: center;
     padding: 20px;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(130, 124, 124);
 }
 
 header h1{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .containerSeekerAndCategory{
     display: flex;
-
-    position: fixed;
-    z-index: 1;
     padding: 20px;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(255, 255, 255)f1f;
+}
+
+.categories{
+
+}
+
+.btnCreate{
+    margin: 210px 0 0 20px;
 }
 
 #seekerMangas{
@@ -34,13 +43,9 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 
 .containerShoppingBag{
     display: flex;
-
     position: relative;
     justify-content: end;
     cursor: pointer;
-
-
-    
 }
 
 .countProductsBag{
@@ -63,7 +68,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 }
 
 main{
-    padding: 50px 60px;
+    padding: 10px 60px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -205,14 +210,17 @@ main{
 }
 
 .contentBag{
+    margin-top: 80px;
     position: absolute;
-    margin-left: 45%;
+    margin-left: 60%;
     z-index: 1;
     border-radius: 10px;
     display: none;
-    width: 50%;
+    width: 30%;
     background-color: #fff;
-    padding: 80px;
+    padding: 20px;
+    position: fixed;
+    z-index: 1;
 }
 
 .modalProducts{
@@ -241,10 +249,12 @@ main{
     border-radius: 5px;
     cursor: pointer;
 }
+
 .containerDescriptionCard{
     cursor: pointer;
     margin-left: 5px;
 }
+
 .descriptionCard{
     margin-top: 15px;
     padding: 10px;

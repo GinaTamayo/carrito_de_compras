@@ -10,30 +10,31 @@
 <body>
     <header>
         <h1>ZONE MANGATAKU</h1>
-    </header>
+        <div class="containerSeekerAndCategory">
+            <select name="todas" id="selectProduct" class="categories">
+                <option value="todas">Categorias</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="suspenso">Suspenso</option>
+                <option value="drama">Drama</option>
+            </select>
 
-    
-    <div class="containerSeekerAndCategory">
-        <select name="" id="selectProduct" class="categories">
-            <option value="todas">Categorias</option>
-            <option value="fantasia">Fantasia</option>
-            <option value="suspenso">Suspenso</option>
-            <option value="drama">Drama</option>
-        </select>
+            <div>
+                <input type="text" id="seekerMangas" placeholder="Buscar mangas">
 
-        <input type="text" id="seekerMangas" placeholder="Buscar mangas">
+            </div>
 
-        <div class="containerShoppingBag" id="containerShoppingBag">
-            <div class="containerBag" id="containerBag">
-                <img src="./images/icons/bolsaDeCompras.png" alt="" id="bag">
-                <div class="countProductsBag" id="countProductsBag">
-                    <span id="countProducts" class="countProducts">0</span>
-                </div>    
-            </div>  
+            <div class="containerShoppingBag" id="containerShoppingBag">
+                <div class="containerBag" id="containerBag">
+                    <img src="./images/icons/bolsaDeCompras.png" alt="" id="bag">
+                    <div class="countProductsBag" id="countProductsBag">
+                        <span id="countProducts" class="countProducts">0</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="contentBag" id="contentBag">
-        
+    </header>
+<div class="contentBag" id="contentBag">
+
     </div>
     <button id="btnCreate" class="btnCreate">Agregar</button>
 
@@ -56,6 +57,8 @@
     </div>
     <main id="ContainerCards"></main>
     <script src="./js/app.js"></script>
+    <footer>
+        <p>texter</p>
+    </footer>
 </body>
 </html>
-

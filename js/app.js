@@ -38,8 +38,6 @@ const itemsBag = JSON.parse(localStorage.getItem("itemsBag")) || [];
 const bag = document.getElementById("bag");
 const btnClear = document.createElement("button");
 
-
-
 //variables
 let imgSelected = " ";
 let idProduct = 0;
@@ -161,6 +159,7 @@ function createCards(manga) {
     containerCards.appendChild(card);
 }
 
+//mostrar y cerrar descripcion
 function descriptionManga(descriptionCard) {
 
    const card = descriptionCard.parentElement;
@@ -178,6 +177,8 @@ function descriptionManga(descriptionCard) {
         }
     });
 }
+
+//editar las card
 function editCard(manga) {
     showModal();
 
@@ -186,14 +187,14 @@ function editCard(manga) {
     newCategory.value = manga.category;
     newStock.value = manga.stock;
     newDescription.value = manga.description;
+    // newImage.imgSelected = manga.image;
 
-   
     btnNewProduct.textContent = "Guardar Cambios";
     btnNewProduct.removeEventListener("click", createNewProduct);
     btnNewProduct.addEventListener("click", () => saveChanges(manga.id));
 }
 
-
+//mostrar las card editadas
 function saveChanges(mangaId) {
     const editManga = mangas.find(m => m.id === mangaId);
 
@@ -202,6 +203,7 @@ function saveChanges(mangaId) {
     editManga.category = newCategory.value;
     editManga.stock = newStock.value;
     editManga.description = newDescription.value;
+    // editManga.image = newImage.imgSelected;
 
     renderCards()
 
@@ -255,6 +257,7 @@ function countBag(manga) {
         // localStorage.setItem("mangas", JSON.stringify(mangas));
 
     }
+    listProducts()
 }
 
 //mostrar la lista de productos agregados en la bolsa
@@ -312,6 +315,7 @@ function listProducts() {
     
 }
 
+//abrir bolsa
 function openCloseBag(){
     if (itemsBag.length > 0 && contentBag.style.display !== "flex") {
         contentBag.style.display = "flex";
@@ -325,6 +329,7 @@ function openCloseBag(){
     }
 }
 
+//cerrar bolsa
 function clearBag() {
     itemsBag.forEach(manga => {
         const mangaId = manga.id;
@@ -387,4 +392,3 @@ function updateStock(mangaId, amount) {
     // mangas[indexMangas].stock = cant-1;
     renderCards()
 }
-
