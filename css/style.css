@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2? family= Langosta+Dos & display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,25 +7,25 @@
 }
 
 body{
-    background-color: rgba(203, 203, 203, 0.438);
+    background-color: rgba(195, 228, 255, 0.903);
 }
 
 header{
     width: 100%;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: fixed;
     z-index: 1;
-    background-color: rgb(130, 124, 124);
+    background-color: rgba(151, 206, 251, 0.903);
 }
 
 header h1{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Lobster Two', sans-serif;
 }
 
 .containerSeekerAndCategory{
     display: flex;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     justify-content: space-between;
 }
@@ -33,12 +35,13 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btnCreate{
-    margin: 210px 0 0 20px;
 }
 
 #seekerMangas{
     width: 500px;
     height: 25px;
+    background-color: black;
+    
 }
 
 .containerShoppingBag{
@@ -76,6 +79,14 @@ main{
     grid-template-columns: repeat(5, 1fr);*/
 }
 
+.filterPriceAndNewProduct{
+    display: flex;
+    padding: 170px 0 30px 0;
+    justify-content: space-around;
+}  
+
+
+
 .cardProduct{
     margin: 40px;
     width: 220px;
@@ -84,7 +95,8 @@ main{
     padding: 10px;
     display: block;
     text-align: center;
-    background-color: rgb(233, 233, 233);
+    background-color: rgba(178, 168, 168, 0.692);
+    box-shadow: 6px 6px 4px 1px rgba(0, 0, 0, 0.692);
 }
 
 .containerImages{
@@ -140,7 +152,7 @@ main{
     z-index: 1;
     width: 300px;
     height: auto;
-    background-color: rgb(207, 211, 210);
+    background-color: rgba(204, 219, 231, 0.953);
     border-radius: 10px;
     display: none;
 }
@@ -151,7 +163,6 @@ main{
     width: 18rem;
     height: 1.5rem;
     border-radius: 15px;
-    background-color: rgb(143, 146, 145);
 }
 
 .modal input[type="file"]{
@@ -173,7 +184,7 @@ main{
     width: 12rem;
     height: 2rem;
     border-radius: 15px;
-    background-color: rgb(109, 109, 213);
+    background-color: rgb(0, 0, 3);
     color: antiquewhite;
     cursor: pointer;
     transition: all .5s;
@@ -267,6 +278,22 @@ main{
     font-size: 20px;
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 90px;
+    padding: 20px 0;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+footer div{
+    display: flex;
+    flex-direction: column;
 }
 
 .filtro{
