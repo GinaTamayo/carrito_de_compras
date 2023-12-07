@@ -19,6 +19,10 @@ header {
     transition: background-color 0.5s ease; /* Added transition */
 }
 
+header h1{
+    font-size: 38px;
+}
+
 .containerSeekerAndCategory {
     display: flex;
     padding: 10px;
@@ -289,7 +293,6 @@ footer div img{
     background-color: bisque;
 }
 
-/* Styles for Edit, Add, Ascend, Descend Buttons */
 
 
 .btnEdit,
@@ -303,18 +306,47 @@ footer div img{
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.btnClear{
+.filterPrice{
+    display: flex;
+    align-items: center;
 
+}
+
+.filterPrice p{
+    margin-right: 12px;
+    font-size: 26px;
 }
 
 .btnCreate {
-    background-color: #7cb27c; /* Green color for Add button */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #7cb27c; 
     color: #fff;
+    
 }
 
-.btnAs,
+.filterPriceAndNewProduct button{
+    height: 30px;
+}
+.containerFilterPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerFilterPrice button{
+    margin: 3px;
+}
+
+.btnAsc,
 .btnDes {
-    background-color: #4169e1; /* Royal blue color for Ascend and Descend buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #adb8db; 
     color: #fff;
 }
 
@@ -327,7 +359,7 @@ footer div img{
 .btnCreate:focus,
 .btnAsc:focus,
 .btnDes:focus {
-    background-color: rgb(104, 205, 245); /* Orange color on hover/focus */
+    background-color: rgb(104, 205, 245); 
     color: #fff;
 }
 
@@ -350,6 +382,9 @@ footer div img{
         margin-left: 32%;
         width: 60%;
     }
+    .productContainer p{
+        margin-right: 6px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -366,6 +401,8 @@ footer div img{
     .filterPriceAndNewProduct{
         padding: 200px 0 30px 0;
     }
+
+    
     
     .contentBag{
         margin-top: 190px;

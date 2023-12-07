@@ -228,7 +228,7 @@ function saveChanges(mangaId) {
     editManga.stock = newStock.value;
     editManga.description = newDescription.value;
     editManga.image = imgSelected;
-    // editManga.image = newImage.imgSelected;
+    localStorage.setItem("mangas", JSON.stringify(mangas));
 
     renderCards()
 
@@ -406,10 +406,7 @@ function alterAmount(manga, event) {
             }
             // manga.stock += event;
 
-        } //else {
-                // manga.stock -= event;
-                // updateStock(mangaId, -1);
-        // }
+        } 
         updateStock(mangaId, event);
 
         console.log(mangas);
@@ -425,11 +422,11 @@ function alterAmount(manga, event) {
 //actualizar el stock
 function updateStock(mangaId, amount) {
     const indexMangas = mangas.findIndex(m => m.id === mangaId);
-    // let cant = mangas[indexMangas].stock
 
     if (indexMangas !== -1  && mangas[indexMangas].stock !== undefined && amount !== undefined) {
         mangas[indexMangas].stock -= amount;
     }
-    // mangas[indexMangas].stock = cant-1;
+    localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+    localStorage.setItem("mangas", JSON.stringify(mangas));
     renderCards()
 }
