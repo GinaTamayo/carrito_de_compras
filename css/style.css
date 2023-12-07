@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2? family= Langosta+Dos & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Langosta+Dos&display=swap');
 
 *{
     margin: 0;
@@ -71,7 +71,7 @@ header h1{
 }
 
 main{
-    padding: 10px 60px;
+    padding: 10px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -89,8 +89,8 @@ main{
 
 .cardProduct{
     margin: 40px;
-    width: 220px;
-    height: 400px;
+    width: 240px;
+    height: auto;
     border-radius: 10px;
     padding: 10px;
     display: block;
@@ -148,7 +148,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     width: 300px;
     height: auto;
@@ -221,7 +221,7 @@ main{
 }
 
 .contentBag{
-    margin-top: 80px;
+    margin-top: 100px;
     position: absolute;
     margin-left: 60%;
     z-index: 1;
@@ -291,9 +291,88 @@ footer{
     color: rgb(255, 255, 255);
 }
 
-footer div{
-    display: flex;
-    flex-direction: column;
+
+
+footer div img{
+    margin: 5px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.btnEdit{
+    justify-content: center;
+    margin: 6px 6px;
+    padding: 5px 12px;
+    border-radius: 7px;
+    background-color: bisque;
+}
+
+
+@media (max-width: 1279px) {
+    .contentBag{
+        
+        margin-left: 44%;
+        width: 50%;
+    }
+
+    .productContainer p{
+        text-align: center;
+    }
+}
+
+@media (max-width: 920px) {
+    .contentBag{
+        
+        margin-left: 32%;
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerSeekerAndCategory{
+        display: block;
+        padding: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    #seekerMangas{
+        width:300px;
+        margin: 6px 0;        
+    }
+    .filterPriceAndNewProduct{
+        padding: 200px 0 30px 0;
+    }
+    
+    .contentBag{
+        margin-top: 190px;
+        margin-left: 3%;
+        width: 95%;
+    }
+
+    @media (max-width: 480px) {
+        .contentBag{
+            margin-top: 190px;
+            width: 100%;
+        }
+        .productContainer{
+            padding: 6px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #6767676e;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .productContainer img{
+            width: 40px;
+            height: 60px;
+        }
+
+        .productContainer p{
+            margin-right: 6px;
+        }
+    }
 }
 
 .filtro{
