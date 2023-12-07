@@ -33,6 +33,7 @@ let mangas = [
 ];
 
 //constantes
+
 const containerCards = document.getElementById("ContainerCards");
 const selectProducts = document.getElementById("selectProduct");
 const btnCreate = document.getElementById("btnCreate");
@@ -57,6 +58,7 @@ const btnClear = document.createElement("button");
 const btnAsc = document.getElementById("btnAsc");
 const btnDes = document.getElementById("btnDes");
 
+countProducts.textContent = itemsBag.length;
 
 //variables
 let imgSelected = " ";
@@ -64,8 +66,8 @@ let idProduct = 0;
 
 //Ejecutar despues de que cargue el DOM
 window.addEventListener("load", () => {
-    // mangas = JSON.parse(localStorage.getItem("mangas")) || [];
-    //mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
+    mangas = JSON.parse(localStorage.getItem("mangas")) || mangas;
+    mangas.forEach(manga => manga.stock = parseInt(manga.stock, 10) || 0);
     renderCards();
 });
 
@@ -111,7 +113,7 @@ function createNewProduct() {
     const id = idProduct;
     const newManga = {id: id, title: titleProduct, price: priceProduct, category: categoryProduct, image: imgSelected, stock: stockProduct, description: descriptionProduct}
     mangas.push(newManga);
-    // localStorage.setItem("mangas", JSON.stringify(mangas));
+    localStorage.setItem("mangas", JSON.stringify(mangas));
     renderCards();
     close()
 }
@@ -292,8 +294,8 @@ function countBag(manga) {
         countProducts.textContent = itemsBag.length;
         updateStock(mangaId, 1);
         renderCards()
-        // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-        // localStorage.setItem("mangas", JSON.stringify(mangas));
+        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        localStorage.setItem("mangas", JSON.stringify(mangas));
 
     }
     listProducts()
@@ -383,8 +385,8 @@ function clearBag() {
     countProducts.textContent = 0;
     listProducts();
     renderCards();
-    // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-    // localStorage.setItem("mangas", JSON.stringify(mangas));
+    localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+    localStorage.setItem("mangas", JSON.stringify(mangas));
 }
 
 //aumentar y disminuir la cantidad de un producto en la bolsa;
@@ -413,10 +415,10 @@ function alterAmount(manga, event) {
         console.log(mangas);
         countProducts.textContent = itemsBag.length;
         listProducts();
-        // localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
-        // localStorage.setItem("mangas", JSON.stringify(mangas)); 
+        localStorage.setItem("itemsBag", JSON.stringify(itemsBag));
+        localStorage.setItem("mangas", JSON.stringify(mangas)); 
     }else{
-        alert("no")
+        alert("El producto se encuentra agotado");
     }
 }
 
